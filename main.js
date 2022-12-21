@@ -1,14 +1,12 @@
 import ListCard from './src/components/ListCard'
+import { getUserFromApi } from './src/utils/Api'
 
 
 const fetchDataFromAPI = async () => {
 
-  const req = await fetch('https://reqres.in/api/users')
-  const res = await req.json()
+  const res = await getUserFromApi()
 
-  console.log(res.data)
-
-  const data = res.data.map((element) => ({
+  const data = res.map((element) => ({
     text: `${element.first_name} ${element.last_name}`,
     src: element.avatar
   }))
@@ -16,8 +14,6 @@ const fetchDataFromAPI = async () => {
   document.querySelector('#app').appendChild(
     ListCard(data)
   )
-
-
 }
 
 fetchDataFromAPI()
