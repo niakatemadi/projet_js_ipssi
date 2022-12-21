@@ -1,13 +1,13 @@
 import createElement from "../utils/createElement";
 
-const Card = ({ text = 'Bonjour', tagName = 'div' } = {}) => createElement(
+const Card = ({ text = 'Bonjour', src, tagName = 'div' } = {}) => createElement(
   {
     tagName,
     children: [
       {
         tagName: 'img',
         attributes: {
-          src: 'https://via.placeholder.com/150'
+          src: src || 'https://via.placeholder.com/150'
         }
       },
       {

@@ -1,19 +1,23 @@
-import sayHello from './sayHello'
-import Card from './src/components/Card'
 import ListCard from './src/components/ListCard'
 
 
-const arrayOfElement = [
-  {
-    text: 'Hello',
-    src: 'https://via.placeholder.com/150'
-  },
-  {
-    text: 'World',
-    src: 'https://via.placeholder.com/150'
-  }
-]
+const fetchDataFromAPI = async () => {
 
-document.querySelector('#app').appendChild(
-  ListCard(arrayOfElement)
-)
+  const req = await fetch('https://reqres.in/api/users')
+  const res = await req.json()
+
+  console.log(res.data)
+
+  const data = res.data.map((element) => ({
+    text: `${element.first_name} ${element.last_name}`,
+    src: element.avatar
+  }))
+
+  document.querySelector('#app').appendChild(
+    ListCard(data)
+  )
+
+
+}
+
+fetchDataFromAPI()
