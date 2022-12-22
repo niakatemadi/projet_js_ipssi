@@ -5,3 +5,10 @@ export const getUserFromApi = async () => {
 
   return res.data
 }
+
+export const getPostFromApi = async () => {
+  const req = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const res = await req.json()
+
+  return res
+}

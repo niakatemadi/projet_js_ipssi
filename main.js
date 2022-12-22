@@ -1,19 +1,25 @@
-import ListCard from './src/components/ListCard'
-import { getUserFromApi } from './src/utils/Api'
+import ListOfPost from './src/pages/ListOfPost'
+import ListOfUser from './src/pages/ListOfUser'
+import TabManager from './src/utils/TabManager'
+
+const rootElement = document.querySelector('#app')
+
+const tabManager = new TabManager(rootElement, {
+  page1: {
+    component: ListOfUser,
+    params: [1, 'hello']
+  },
+  page2: {
+    component: ListOfPost,
+    params: ['https://jsonplaceholder.typicode.com/posts']
+  }
+})
 
 
-const fetchDataFromAPI = async () => {
+document.querySelectorAll('[data-tabId]').forEach(element => {
+  element.addEventListener('click', () => {
+    tabManager.openTabById(element.getAttribute('data-tabId'))
+  })
+})
 
-  const res = await getUserFromApi()
-
-  const data = res.map((element) => ({
-    text: `${element.first_name} ${element.last_name}`,
-    src: element.avatar
-  }))
-
-  document.querySelector('#app').appendChild(
-    ListCard(data)
-  )
-}
-
-fetchDataFromAPI()
+tabManager.openTabById('page1')
