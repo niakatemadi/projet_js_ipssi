@@ -35,6 +35,29 @@ header {
   height:40px;
   width: 100px;
 }
+.navbar_btn:hover 
+{
+  cursor:pointer;
+}
 .bloc_search {
-  background-color: green;
+  width:300px;
+  margin-left:40%;
+}
+#search_bar {
+  width:500px;
+  height:25px;
+  border-radius:25px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form div {
+  text-align:center;
+  color:white;
+}
+form div:hover {
+  cursor: pointer;
+
 }

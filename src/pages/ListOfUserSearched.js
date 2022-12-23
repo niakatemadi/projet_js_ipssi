@@ -16,9 +16,6 @@ const ListOfUserSearched = async (firstParam, secondParam) => {
     element.className='bloc_list_card';
     element.appendChild(ListCard(data))
 
-    
-      
-      
       const form = Form()
       const app = document.querySelector('.bloc_search')
       app.appendChild(form);
@@ -27,7 +24,6 @@ const ListOfUserSearched = async (firstParam, secondParam) => {
        const searchButton = document.querySelector('.search_button')
        searchButton.addEventListener('click',getInputData)
        
-
   return element
 }
 
