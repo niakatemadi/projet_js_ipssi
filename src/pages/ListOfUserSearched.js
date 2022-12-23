@@ -1,6 +1,7 @@
 import ListCard from "../components/ListCard"
 import {getInputData} from '../../main.js'
 import { getUserSearchedFromApi } from "../utils/Api"
+import { Form } from "../components/Form"
 
 const ListOfUserSearched = async (firstParam, secondParam) => {
     console.log(firstParam)
@@ -17,23 +18,8 @@ const ListOfUserSearched = async (firstParam, secondParam) => {
 
     
       
-      const form = document.createElement('form')
-
-      const button = document.createElement('div')
-      button.setAttribute('class','search_button')
-      button.style.width='150px'
-      button.style.height='25px'
-      button.style.backgroundColor='green'
-      button.type='submit'
-      button.textContent='Rechercher'
-
-      const input = document.createElement('input')
-      input.setAttribute('id','search_bar')
       
-
-      form.appendChild(input)
-      form.appendChild(button)
-
+      const form = Form()
       const app = document.querySelector('.bloc_search')
       app.appendChild(form);
 
