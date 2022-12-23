@@ -12,8 +12,16 @@ const ListOfUserSearched = async (firstParam, secondParam) => {
     src: element.image
   }))
 
+    const count = res.info.count;
+    console.log(count);
+
+    const nbreOfResults = document.createElement('h3');
+    nbreOfResults.textContent=`${count}: résultats`;
+
+
     const element=document.createElement('div');
     element.className='bloc_list_card';
+    element.appendChild(nbreOfResults)
     element.appendChild(ListCard(data))
 
       const form = Form()

@@ -3,6 +3,7 @@ export const getUserSearchedFromApi = async (status) => {
   const req = await fetch(`https://rickandmortyapi.com/api/character/?name=${status}`)
   const res = await req.json()
   console.log('inside user api get')
+  console.log(res.info.count)
   console.log(res)
 
 
